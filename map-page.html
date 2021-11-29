@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Map Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" media="all" href="./resources/jquery-jvectormap.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./resources/jquery-1.8.2.js"></script>
+  <script src="./resources/jquery.jvectormap.min.js"></script>
+  <script src="./resources/jquery-jvectormap-continents-mill.js"></script>
+  <script>
+    $(function(){
+      $('#map').vectorMap({ // setting up the map
+          map: 'continents_mill', 
+          backgroundColor : 'rgb(240, 248, 255)',
+          regionStyle : {
+                initial: {
+                    fill: '#6495ED',
+                    "fill-opacity": 1,
+                    stroke: 'none',
+                    "stroke-width": 0,
+                    "stroke-opacity": 1
+                },
+                hover: {
+                    "fill-opacity": 0.8,
+                    cursor: 'pointer'
+                },
+                selected: {
+                    fill: 'yellow'
+                },
+                selectedHover: {
+                }
+            }
+        });
+    })
+  </script>
+  <style>
+
+    body {
+        background-color: rgb(240, 248, 255);
+
+    }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1000px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="./home-page.html">Home</a></li>
+        <li><a href="./about-page.html">About</a></li>
+        <li class="active"><a href="#">Map</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+    <div id="map" style="width: 1910px; height: 900px"></div>
+</div>
+
+</body>
+</html>
