@@ -3,7 +3,7 @@ import plotly.offline as pyo
 import plotly.graph_objs as go
 
 # Load CSV file from Datasets folder
-df = pd.read_csv('E:\PycharmProjects\FinalProjectTest\my_venv\Datasets\VaccinationsPercentage.csv')
+df = pd.read_csv('../Datasets/VaccinationsPercentage.csv')
 
 df = df.query('continent == "Asia"')
 Start = '2020-11-15'
