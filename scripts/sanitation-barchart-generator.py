@@ -38,7 +38,8 @@ def generate_graphs(continent, path):
     layout = go.Layout(title=f"Population Proportion Using Safely Managed Sanitation Services in {continent} in 2020", xaxis_title="Countries", yaxis_title="Population Proportion")
 
     fig = go.Figure(data=data, layout=layout)
-
+    with open(f"{path[:-4]}.txt", 'w') as file:
+        file.write(pyo.plot(fig, include_plotlyjs=False, output_type='div'))
     pyo.plot(fig, filename=path)
 
 # Creating a dictionary of country codes and their respective graph html file paths
