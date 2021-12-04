@@ -21,17 +21,12 @@
       background-position-y: bottom;
       background-size: 100% 87.5%;
       background-position-x: right;
+      /* might want to keep the bot line if you go with the minimal ver*/
+      /*background-size: cover; */
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 1000px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
     
     /* Set black background color, white text and some padding */
     footer {
@@ -40,6 +35,25 @@
       padding: 15px;
     }
     
+    .btn-huge{
+      padding-top:20px;
+      padding-bottom:20px;
+      width:100%;
+      background-color:#6495ED;
+      color:rgb(240, 248, 255);
+      border-color: #6495ED;
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 30%;
+    }
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -76,7 +90,7 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-8 text-left" style="text-align: center;"> 
       <h1>Welcome to the Healthy World Map</h1>
       <hr>
       <h3>Learning more about world health is just a few clicks away!</h3>
@@ -87,7 +101,11 @@
   </div>
 </div>
 
-
+<div class="container">
+  <div class="center">
+    <a href="./pages/map-page.html" class="btn btn-default btn-lg btn-block btn-huge">START</a>
+  </div>
+</div>
 
 </body>
 </html>
