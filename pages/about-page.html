@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      height: 1000px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Healthy World Map</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li class="active"><a href="#">About</a></li>
+          <li><a href="./map-page.html">Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid text-center">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>About the Healthy World Map</h1>
+        <hr>
+        <h3>Our Vision</h3>
+        <p>In a time when world health is taken into heavy consideration having easy and convenient access to world
+          health information should be a must. We created Healthy World Map
+          to allow everyone to have access to this information quickly and easily. Our vision is to allow those
+          travelling to other countries, moving to other countries or anyone
+          in need of this kind of data an easy place to access and visualize it with just a few clicks. </p>
+        <p>When using the World Healthy Map all that needs to be done is simply select the Continent you are interested
+          in learning about and select the type of data you wish to visualize.
+          You will be presented with a graph showing comparisons of each country in the continent you selected!</p>
+        <h3>Looking Toward the Future</h3>
+        <p>If future development of this project were to continue we would like to widen our scope and increase the
+          detail of what can be visualized. One of our goals would be the visualization of specific
+          countries as well as other features like comparing two or more specific countries or countries from other
+          continents together.</p>
+        <h3>Data Sources</h3>
+        <p>All data sources are gathered from the <a href="https://ourworldindata.org/">World Health Organization</a>
+        </p>
+        <h3>Our Team</h3>
+        <p>Daniel Correa-Lopez<br>
+          Dylan Goodman<br>
+          Luke Simone<br>
+          Colin Speer</p>
+        <h3>Source Code</h3>
+        <p>Check out our <a href="https://github.com/dlopez144/final-project-ITSC3155">GitHub repository</a><br>
+        </p>
+      </div>
+      <div class="col-sm-2 sidenav">
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

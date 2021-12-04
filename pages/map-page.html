@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Map Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" media="all" href="../resources/jquery-jvectormap.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="../resources/jquery.jvectormap.min.js"></script>
+  <script src="../resources/jquery-jvectormap-continents-mill.js"></script>
+  
+  <script>
+    $(function(){
+      var map = new jvm.Map({ // setting up the map
+        container: $('#map'),
+          map: 'continents_mill', 
+          backgroundColor : 'rgb(240, 248, 255)',
+          regionStyle : {
+                initial: {
+                    fill: '#6495ED',
+                    "fill-opacity": 1,
+                    stroke: 'none',
+                    "stroke-width": 0,
+                    "stroke-opacity": 1
+                },
+                hover: {
+                    "fill-opacity": 0.8,
+                    cursor: 'pointer'
+                },
+                selected: {
+                    fill: 'yellow'
+                },
+                selectedHover: {
+                }
+            },
+            onRegionClick:function(event, code) { // callback function
+              var dict = {
+                "NA" : "north-america",
+                "SA" : "south-america",
+                "AS" : "asia",
+                "EU" : "europe",
+                "OC" : "oceania",
+                "AF" : "africa"
+              }
+              localStorage.setItem("param_name", "water");
+              localStorage.setItem("c_name", dict[code]);
+              $("#param_select").modal('toggle');
+            }
+        });
+    })
+
+  </script>
+  <style>
+
+    body {
+        background-color: rgb(240, 248, 255);
+
+    }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1000px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="../index.html">Healthy World Map</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./about-page.html">About</a></li>
+        <li class="active"><a href="#">Map</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<h1 style="text-align: center;">Select a continent (could someone make this text look good?)</h1>
+&nbsp;&nbsp;&nbsp;
+<div class="container-fluid text-center">    
+    <div id="map" style="width: 1910px; height: 700px"></div>
+</div>
+
+<!--Param Select Modal-->>
+<div id="param_select" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="text-align: center;">What data are you interested in? //someone come up with a better title pls</h4>
+      </div>
+      <div class="container" style="text-align: center;width: 300px;margin: 0 auto;">
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" id= "sanitation" class="btn btn-block">Sanitation Data</button>
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" id="water" class="btn btn-block">Clean Water Data</button>
+        &nbsp;&nbsp;&nbsp;  
+        <button type="button" id= "vaccine" class="btn btn-block">Vaccination Rates</button>
+        &nbsp;&nbsp;&nbsp;   
+        <button type="button" id= "air" class="btn btn-block">Air Pollution Data</button>
+        &nbsp;&nbsp;&nbsp;   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.getElementById('sanitation').onclick = function() {
+      localStorage.setItem("param_name", "sanitation");
+      window.location.assign("./graph-page.html");
+  };
+
+  document.getElementById('water').onclick = function() {
+      localStorage.setItem("param_name", "water");
+      window.location.assign("./graph-page.html");
+  };
+
+  document.getElementById('vaccine').onclick = function() {
+      localStorage.setItem("param_name", "vaccination-rates");
+      window.location.assign("./graph-page.html");
+  };
+
+  document.getElementById('air').onclick = function() {
+      localStorage.setItem("param_name", "air-pollution");
+      window.location.assign("./graph-page.html");
+  };
+</script>
+
+
+</body>
+</html>
