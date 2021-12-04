@@ -9,7 +9,7 @@ def generate_graphs(continent, path):
     df = pd.read_csv('../Datasets/VaccinationsPercentage.csv')
 
     # making sure it only has data for the current continent
-    df = df[df['Continent'] == continent]
+    df = df[df['continent'] == continent]
 
     # turning every empty string into a NAN type to kill these entries easily
     df.replace('', np.nan, inplace=True)
@@ -37,7 +37,7 @@ def generate_graphs(continent, path):
                    y=final_df['people_fully_vaccinated_per_hundred']),
             go.Bar(name='% of partially vaccinated people', x=final_df2['location'], y=final_df2['difference'])]
 
-    layout = go.Layout(title=f"Covid-19 Vaccine Proportions by country in Asia 2021", xaxis_title="Countries",
+    layout = go.Layout(title=f"Covid-19 Vaccine Proportions by country in {continent} 2021", xaxis_title="Countries",
                        yaxis_title="Population Proportion (%)", barmode='stack')
 
     fig = go.Figure(data=data, layout=layout)
@@ -48,5 +48,18 @@ def generate_graphs(continent, path):
 
     pyo.plot(fig, filename=path)
 
+# Creating a dictionary of country codes and their respective graph html file paths
+# and generating a graph for each entry
+continents = {
+    "Europe" : '../graphs/europe/europe-vaccination-rates.html',
+    "Asia" : '../graphs/asia/asia-vaccination-rates.html',
+    "North America" : '../graphs/north-america/north-america-vaccination-rates.html',
+    "Africa" : '../graphs/africa/africa-vaccination-rates.html',
+    "Oceania" : '../graphs/oceania/oceania-vaccination-rates.html',
+    "South America" : '../graphs/south-america/south-america-vaccination-rates.html'
+}
+
+for continent, path in continents.items():
+    generate_graphs(continent, path)
 
 
