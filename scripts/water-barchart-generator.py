@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.offline as pyo
 import plotly.graph_objs as go
 import data_cleaner as dc
+import pycountry as pc
 
 def gen_barchart(continent, path):
     # Load data
@@ -16,6 +17,10 @@ def gen_barchart(continent, path):
 
     # Leave only one row for each country in the selected continent
     filtered_df = df.drop_duplicates('Location', keep='first')
+
+    # replacing long country names with their alpha2 codes
+    filtered_df['Location'] = filtered_df['SpatialDimValueCode'].apply(
+        lambda x: pc.country_alpha2_to_country_name(x) if len(pc.country_alpha2_to_country_name(x)) < 18 else x)
 
     # Average a specific country's access to water
     avg_df = {}
@@ -41,6 +46,8 @@ def gen_barchart(continent, path):
 
     # Write file
     fig = go.Figure(data=data, layout=layout)
+    fig.update_layout(xaxis={'categoryorder': 'total descending'})
+
     pyo.plot(fig, filename=path)
 
 
